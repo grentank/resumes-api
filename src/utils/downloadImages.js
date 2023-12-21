@@ -3,27 +3,25 @@ const fs = require('fs');
 const faker = require('community-faker');
 const wait = require('./wait');
 
-const downloadImages = async (number) => {
+const downloadImages = async (number, hostUrl) => {
   const images = [];
   for (let index = 0; index < number; index += 1) {
-    await wait(100);
+    await wait(Math.ceil(Math.round() * 100));
     const url = 'https://this-person-does-not-exist.com';
-    const newQuery = '/?new=1677753751872';
-    const { data } = await axios.get(url + newQuery);
+    const { data } = await axios.get(`${url}/en`);
+    const imgUrl = data.match(/<img id="avatar" loading="lazy" src="(.*?)"/)[1];
 
-    if (data.generated !== 'true') throw new Error('API error (this-person-does-not-exist)');
-
-    const response = await axios.get(url + data.src, { responseType: 'stream' });
+    const response = await axios.get(url + imgUrl, { responseType: 'stream' });
 
     const uuid = faker.datatype.uuid();
 
-    const filePath = `./public/img/${uuid}.jpg`;
+    const filePath = `./public/resumes/img/${uuid}.jpg`;
 
     const writeStream = fs.createWriteStream(filePath);
     response.data.pipe(writeStream);
 
     await new Promise((res) => writeStream.on('finish', res));
-    images.push(`${uuid}.jpg`);
+    images.push(`${hostUrl}/resumes/img/${uuid}.jpg`);
   }
   return images;
 };

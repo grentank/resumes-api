@@ -20,7 +20,7 @@ const generateResume = (img) => {
     fullName: newNameRus,
     birthDate: faker.date.past(),
     about: about[generateIndexes(about.length, 1, 1)[0]],
-    technologies: generateIndexes(technologies.length, 7, 12).map((index) => technologies[index]),
+    technologies: generateIndexes(technologies.length, 5, 12).map((index) => technologies[index]),
     achievments: generateIndexes(achievments.length, 3, 6).map((index) => achievments[index]),
     education: education[generateIndexes(education.length, 1, 1)[0]],
     prefered: prefered[generateIndexes(prefered.length, 1, 1)[0]],

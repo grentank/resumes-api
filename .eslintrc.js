@@ -14,5 +14,6 @@ module.exports = {
     'no-console': 'off',
     'no-promise-executor-return': 'off',
     'no-await-in-loop': 'off',
+    'consistent-return': 'off',
   },
 };

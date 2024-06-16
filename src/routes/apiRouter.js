@@ -8,7 +8,7 @@ apiRouter.get('/', async (req, res) => {
     return res.json(await Resume.findAll({ order: sequelize.random(), limit: 10 }));
   } catch (error) {
     console.log(error);
-    return res.sendStatus(500);
+    return res.status(500).json({message: 'Error ', error});
   }
 });
 

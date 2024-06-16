@@ -1,0 +1,111 @@
+{
+  "ServerError": {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string"
+      }
+    }
+  },
+  "Comment": {
+    "id": "Comment",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "text": {
+        "type": "string",
+        "description": "Текст комментария"
+      },
+      "isImportant": {
+        "type": "boolean",
+        "description": "Важность комментария"
+      },
+      "resumeId": {
+        "type": "integer",
+        "description": "Внешний ключ, ссылающийся на резюме"
+      }
+    }
+  },
+  "Resume": {
+    "id": "Resume",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "format": "int32"
+      },
+      "img": {
+        "type": "string",
+        "format": "UUID",
+        "description": "UUID аватарки кандидата. Лежит в static директории public/img на сервере"
+      },
+      "fullName": {
+        "type": "string",
+        "description": "ФИО кандидата"
+      },
+      "birthDate": {
+        "type": "string",
+        "format": "date",
+        "description": "Дата рождения кандидата"
+      },
+      "about": {
+        "type": "string",
+        "description": "О себе"
+      },
+      "technologies": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Технологии, которыми владеет кандидат"
+      },
+      "achievments": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Достижения, которые получил кандидат"
+      },
+      "education": {
+        "type": "string",
+        "description": "Образование"
+      },
+      "position": {
+        "type": "string",
+        "description": "Должность трудоустройства"
+      },
+      "prefered": {
+        "type": "string",
+        "description": "Предпочитаемый способ связи"
+      },
+      "phone": {
+        "type": "string",
+        "description": "Номер телефона"
+      },
+      "telegram": {
+        "type": "string",
+        "description": "Telegram"
+      },
+      "git": {
+        "type": "string",
+        "description": "GitHub"
+      },
+      "email": {
+        "type": "string",
+        "description": "Email"
+      },
+      "salary": {
+        "type": "integer",
+        "description": "Предпочитаемая зарплата"
+      },
+      "Comments": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Comment"
+        },
+        "description": "Комментарии"
+      }
+    }
+  }
+}

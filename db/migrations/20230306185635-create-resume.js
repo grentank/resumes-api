@@ -1,3 +1,5 @@
+'use strict';
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -10,9 +12,11 @@ module.exports = {
       },
       img: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       fullName: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       birthDate: {
         type: Sequelize.DATE,
@@ -27,6 +31,9 @@ module.exports = {
         type: Sequelize.ARRAY(Sequelize.STRING),
       },
       education: {
+        type: Sequelize.STRING,
+      },
+      position: {
         type: Sequelize.STRING,
       },
       prefered: {
@@ -50,12 +57,12 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('NOW'),
+        defaultValue: Sequelize.fn('now'),
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
-        defaultValue: Sequelize.fn('NOW'),
+        defaultValue: Sequelize.fn('now'),
       },
     });
   },

@@ -1,0 +1,10 @@
+{
+  "description": "Ошибка сервера",
+  "content": {
+    "application/json": {
+      "schema": {
+        "$ref": "#/components/schemas/ServerError"
+      }
+    }
+  }
+}

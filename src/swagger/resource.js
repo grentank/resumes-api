@@ -33,7 +33,7 @@ module.exports = {
   },
   servers: [
     {
-      url: 'http://localhost:3000/api',
+      url: 'https://resumes-api.onrender.com/api',
     },
   ],
 };

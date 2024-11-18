@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "main": "src/server.js",
   "scripts": {
-    "db:reset": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all",
-    "dev-db": "sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all",
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "db:reset:dev": "NODE_ENV=development sequelize db:drop && NODE_ENV=development sequelize db:create && NODE_ENV=development sequelize db:migrate && NODE_ENV=development sequelize db:seed:all",
+    "db:reset:prod": "NODE_ENV=production sequelize db:migrate:undo:all && NODE_ENV=production sequelize db:migrate && NODE_ENV=production sequelize db:seed:all",
+    "db:init:prod": "NODE_ENV=production sequelize db:migrate && NODE_ENV=production sequelize db:seed:all",
+    "dev": "NODE_ENV=development nodemon src/server.js",
+    "start": "NODE_ENV=production node src/server.js"
   },
   "keywords": [],
   "author": "",
